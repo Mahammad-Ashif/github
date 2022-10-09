@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!--detecing the devices -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--Adding jQuery Online CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!--adding custom script-->
+    <script type="text/javascript">
+     $(document).ready(function(){
+        console.log('jQuery Loaded');
+        $('#link1').click(function(){
+            $(this).addClass('a');
+            $('#link2,#link3,#link4').removeClass('a');
+            console.log('link1 clicked');
+        });
+        $('#link2').click(function(){
+            $(this).addClass('a');
+            $('#link1,#link3,#link4').removeClass('a');
+            console.log('link2 clicked');
+        });
+        $('#link3').click(function(){
+            $(this).addClass('a');
+            $('#link2,#link1,#link4').removeClass('a');
+          console.log('link3 clicked');
+        });
+        $('#link4').click(function(){
+            $(this).addClass('a');
+            $('#link2,#link3,#link1').removeClass('a');
+          console.log('link4 clicked');  
+        });
+
+        /*Disabling right click from the Page*/
+        $('html,body').on('contextmenu',function(){
+             alert('this function is not allowed here');
+             return false;
+        });
+        /*Disabling the cut copy paste*/
+        $('html,body').bind('cut copy paste',function(e){
+            e.preventDefault();
+            alert('This function is not allowed here');
+        });
+        
+     });
+    </script>
+    <title>Welcome</title>
+    <style type="text/css">
+     nav {
+           background-color: #F9E35C;
+           padding: 12px 14px;
+           text-align: center;
+
+     }
+     /*it will choose only those a tag which resides under nav tag
+       Child selectors / CSS Combinators. 
+     */
+     nav>a{
+        margin-left: 20px;
+        /*Removing the Underline text*/
+        text-decoration: none;
+     }
+     nav>a:hover{
+        transition: all 0.6s ease-in-out;
+        background-color: #333;
+        color: #fff;
+        padding: 12px 14px;
+
+     }
+     /*This class 'a' will be called by jQuery dynamically on click on links */
+     .a{
+          background-color: purple;
+          color: #fff;
+          padding: 12px 14px;
+
+     }
+     /*Adding Media Query*/
+     @media only screen and (max-width: 768px){
+
+       body{
+            background-color: lightblue;
+       }
+
+       nav>a{
+        display: block;
+        margin-top: 20px;
+       }
+      }
+    </style>
+</head>
+<body>
+       <nav>
+           <a href="javascript:void(0);" id="link1">Home</a>
+           <a href="javascript:void(0);" id="link2">About</a>
+           <a href="javascript:void(0);" id="link3">Products</a>
+           <a href="javascript:void(0);" id="link4">Contact</a>
+       </nav>
+
+         Some Input: <input type="text" name="t1" id="t1">
+
+       </body>
+</html>

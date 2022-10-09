@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--Adding Bootstrap CDN -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>Welcome</title>
+	<script type="text/javascript">
+          function nameValid(){
+            var name = document.getElementById('t1').value;
+            var nameRegex=/^[a-zA-Z ]{3,8}$/;
+
+            if(nameRegex.test(name)){
+              console.log(name);
+              document.getElementById('errorName').innerHTML='';
+              document.getElementById('t1').classList.remove('is-invalid');
+              document.getElementById('b1').disabled=false;
+            }
+            else{
+              console.log('Invalid Name');
+              document.getElementById('errorName').innerHTML="Name should contains letter , min 3 to max 8 Chars Long.";
+              document.getElementById('t1').classList.add('is-invalid');
+              document.getElementById('b1').disabled=true;
+            }
+          }
+
+          function phoneValid(){
+            var phone = document.getElementById("t2").value;
+
+          if(phone.length == 10){
+
+            if (phone.substr(0,1)=="9" || phone.substr(0,1)=="8" || phone.substr(0,1)=="7" || phone.substr(0,1)=="6")
+             {
+             document.getElementById("errorPhone").innerHTML="";
+             document.getElementById("t2").classList.remove("is-invalid");
+             document.getElementById("b1").disabled=false;
+            }
+            else
+           {
+            document.getElementById('errorPhone').innerHTML="Invalid Mobile Number";
+            document.getElementById('t2').classList.add("is-invalid");
+            document.getElementById("b1").disabled=true;
+          }
+
+          }
+
+          else {
+             document.getElementById("errorPhone").innerHTML="Phone no have must be 10 digit.";
+              document.getElementById("t2").classList.add("is-invalid");
+              document.getElementById("b1").disabled=true;
+          }
+        }
+
+        // function phoneValid(){
+        //    var phone = document.getElementById('t2').value;
+        //    //Whether it is 10 digited no or not
+        //    if(phone.length ==10){
+        //     //Now check start digit is between either 6,7,8,9
+        //       if(phone.substr(0,1)=='9' || phone.substr(0,1)=='8' || phone.substr(0,1)=='7' ||phone.substr(0,1)=='6'){
+        //          console.log('Ok');
+        //          document.getElementById('errorPhone').innerHTML='';
+        //          document.getElementById('b1').disabled=false;
+        //          document.getElementById('t2').classList.remove('is-invalid');
+
+        //       }else{
+        //         console.log('Invalid Mobile Number');
+        //          document.getElementById('errorPhone').innerHTML="Invalid Mobile Number";
+        //      document.getElementById('b1').disabled=true;
+        //      document.getElementById('t2').classList.add('is-invalid');
+        //       }
+        //    }  
+        //    else{
+
+        //      console.log('Mobile Number must contains 10 Digits');
+        //      document.getElementById('errorPhone').innerHTML="Mobile Number must contains 10 Digits";
+        //      document.getElementById('b1').disabled=true;
+        //      document.getElementById('t2').classList.add('is-invalid');
+        //     }
+        //   }
+
+        function emailValid(){
+          var email = document.getElementById("t3").value;
+          var emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+           if(emailRegex.test(email)){
+                console.log('Valid Email');
+                document.getElementById('errorEmail').innerHTML='';
+                document.getElementById('b1').disabled=false;
+                document.getElementById('t3').classList.remove('is-invalid');
+
+             }else{
+                console.log('Invalid Email');
+                document.getElementById('errorEmail').innerHTML="Invalid email Address.";
+                document.getElementById('b1').disabled=true;
+                document.getElementById('t3').classList.add('is-invalid');
+             }
+
+        }
+
+	</script>
+</head>
+<body>
+
+	  <div class="container">
+	  	<header class="modal-header"><h1>SIGNUP</h1></header>
+	  	<form method="post" action="welcome.html">
+              <div class="form-group">
+                  <label>Name :</label>
+                  <input type="text" name="t1" id="t1" required class="form-control" onkeyup="nameValid()">
+                  <section id="errorName" class="text-danger"></section>
+              </div>
+              <div class="form-group">
+                 <label>Phone :</label>
+                 <input type="number" name="t2" id="t2" required class="form-control" onkeyup="phoneValid()">
+                 <section id="errorPhone" class="text-danger"></section>
+              </div>
+              <div class="form-group">
+                 <label>Email :</label>
+                 <input type="text" name="t3" id="t3" required class="form-control" onkeyup="emailValid()">
+                  <section class="text-danger" id="errorEmail" ></section>
+              </div>
+
+              <div class="form-group">
+                <label>Password:</label>
+                <input type="password" name="p1" id="p1" required class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Confirm Password:</label>
+                <input type="password" name="p2" id="p2" required class="form-control">
+              </div>
+              <div class="form-group">
+                <button id="b1" type="submit" class="btn btn-sm btn-primary">Submit</button>
+              </div>
+          </form>
+
+
+
+	  </div>
+
+     <!-- <section class="alert alert-success">
+          You have Successfully Regisreted With Us !
+          <a href="responsiveForm.html">Back</a>  
+    </section> -->
+
+
+</body>
+</html>

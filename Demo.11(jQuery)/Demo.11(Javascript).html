@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--Adding Bootstrap CDN -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		
+		body {
+  background: lightblue;
+}
+	</style>
+	<title>Welcome</title>
+	 
+	 
+
+	 <script type="text/javascript" src="Demo.11.js"></script>
+
+	 <script type="text/javascript" src="jquery-3.6.0.min.js">
+	 	
+	 </script>
+
+	 <script type="text/javascript">
+
+		$(document).ready(function(){
+			console.log("jQuery Loded");
+			$("#b2").click(function(){
+				console.log("clicked");
+				// $(".para").toggle(2000);
+				// $(".para").fadetoggle(2000);
+				// $(".form-group").slideToggle(2000);
+				$(".from-row").slideToggle(20);
+			});
+
+		});
+		
+	</script>
+	  
+
+	  
+
+</head>
+<body>
+
+	<button id="b2" type="button" class="btn btn-success">Show/Hide</button>
+
+	<div class="container">
+			<header class="modal-header">
+				<h1>SIGNUP</h1>
+			</header>
+		<form method="post" action="welcome.html">
+
+			<form>
+
+				<div>
+					 <label>Name : </label>
+				</div>
+
+  <!-- <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationServer01"></label>
+      <input type="text" class="form-control is-valid" id="validationServer01" placeholder="First name"   required>
+    </div>
+
+
+    <div class="col-md-4 mb-3">
+      <label for="validationServer02"></label>
+      <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Middle name"   required>   
+    </div>
+
+     
+     <div class="col-md-4 mb-3">
+      <label for="validationServer02"></label>
+      <input type="text" class="form-control is-valid" id="validationServer03" placeholder="Last name"   required>   
+    </div>
+</div> -->
+
+			
+			 
+
+			<div class="form-row">
+				<div class="col-md-4 mb-3">
+				<input type="text" name="f1" id="f1"   required class="form-control is-valid" placeholder="First name" onkeyup="fnameValid()" >
+				<section id="errorfName" class="text-danger"></section>
+			</div>
+
+			<div class="col-md-4 mb-3">
+				<input type="text" name="f2" id="f2"   required class="form-control is-valid" placeholder="Middle name" >
+			</div>
+
+			<div class="col-md-4 mb-3">
+				<input type="text" name="f3" id="f3"   required class="form-control is-valid" placeholder="Last name" onkeyup="lnameValid()">
+				<section id="errorlName" class="text-danger"></section>
+			</div>
+		</div>
+
+			<div class="form-group">
+				<label>Guardian Name :</label>
+				<input type="text" name="n1" id="n1" required class="form-control is-valid" onkeyup="nameValid()">
+				<section id="errorName" class="text-danger"></section>
+			</div>
+
+			<div class="form-group">
+				<label>Phone No. :</label>
+				<input type="number" name="p1" id="p1" required class="form-control is-valid" onkeyup="phoneValid()">
+				<section id="errorPhone" class="text-danger"></section>
+			</div>
+
+			<div class="form-group">
+				<label>Age :</label>
+				<input type="number" name="a1" id="a1" required class="form-control is-valid" onkeyup="ageValid()">
+				<section id="errorAge" class="text-danger"></section>
+			</div>
+
+			<div class="form-group">
+				<label>Salary :</label>
+				<input type="number" name="s1" id="s1" required class="form-control is-valid" onkeyup="salaryValid()">
+				<section id="errorSalary" class="text-danger"></section>
+			</div>
+
+			<div class="form-group">
+				<label>Email :</label>
+				<input type="text" name="e1" id="e1" required class="form-control is-valid" onkeyup="emailValid()">
+				<section id="errorEmail" class="text-danger"></section>
+			</div>
+
+			<div class="form-group">
+				<label>Password :</label>
+				<input type="password" name="ps1" id="ps1" required class="form-control is-valid" onkeyup="passPolicy()">
+				<section id="errorPass" class="text-danger"></section>
+			</div>
+
+			<div class="form-group">
+				<label>Confirm Password :</label>
+				<input type="password" name="ps2" id="ps2" required class="form-control is-valid" onkeyup="passMatch()">
+				<section id="errorPass2" class="text-danger"></section>
+				<input type="checkbox" onchange="togglePass()" name="ch1" id="ch1">Show/Hide.
+			</div>
+
+			<div class="form-group">
+				<label>Address :</label>
+				<textarea type="text" name="ad1" id="ad1" required class="form-control is-valid" rows="4" onkeyup="addressValid()"></textarea>
+				<section id="errorAddress" class="text-danger"></section>
+				(Address to be fillup not more than 200 character.)
+			</div>
+
+			<div class="form-group">
+				<button id="b1" type="submit" class="btn btn-sm btn-primary">Submit</button>
+			</div>
+
+		</form>
+ 	</div>
+
+
+
+</body>
+</html>

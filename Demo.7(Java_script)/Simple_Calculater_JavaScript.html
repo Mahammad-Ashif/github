@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Welcome</title>
+	<script type="text/javascript">
+       function add(){
+        var n1 = Number(document.getElementById('n1').value);
+        console.log(typeof(n1));
+        var n2 = Number(document.getElementById('n2').value);
+        console.log(typeof(n2));
+
+        var p = n1+n2;
+
+        console.log("sum="+p);
+       // document.write("<p>Sum="+z+"</p>");
+        document.getElementById('output').innerHTML="Sum="+p;
+
+
+       }
+
+       function sub(){
+        var n1 = Number(document.getElementById('n1').value);
+        console.log(typeof(n1));
+        var n2 = Number(document.getElementById('n2').value);
+        console.log(typeof(n2));
+        var q = n1-n2;
+        document.getElementById('output').innerHTML="Sub="+q;
+       }
+
+
+       function mult(){
+        var n1 = Number(document.getElementById('n1').value);
+        console.log(typeof(n1));
+        var n2 = Number(document.getElementById('n2').value);
+        console.log(typeof(n2));
+
+        var r = n1*n2;
+
+        document.getElementById('output').innerHTML="Mult="+r;   
+    
+       }
+
+
+        function dev(){
+        var n1 = Number(document.getElementById('n1').value);
+        console.log(typeof(n1));
+        var n2 = Number(document.getElementById('n2').value);
+        console.log(typeof(n2));
+
+        var s = n1/n2;
+
+        document.getElementById('output').innerHTML="Dev="+s;   
+    
+       }
+
+        function Rem(){
+        var n1 = Number(document.getElementById('n1').value);
+        console.log(typeof(n1));
+        var n2 = Number(document.getElementById('n2').value);
+        console.log(typeof(n2));
+
+        var t = n1%n2;
+
+        document.getElementById('output').innerHTML="Rem="+t;   
+    
+       }
+	</script>
+</head>
+<body>
+
+
+<header>   
+	   <h1>Welcome to Simple Calculator with Java Script Programming Language:</h1>
+   </header>
+      <script type="text/javascript">
+       
+      document.bgColor="lightblue";
+      document.fgColor="purple";
+   </script>
+
+       <p>NO1: <input type="number" name="n1" id="n1"></p>
+       <p>NO2: <input type="number" name="n2" id="n2"></p>
+       <p>
+          <button onclick="add()">+</button>
+          <button onclick="sub()">-</button>
+          <button onclick="mult()">*</button>
+          <button onclick="dev()">/</button>
+          <button onclick="Rem()">%</button>
+       </p>
+        
+       <section id="output"></section>
+
+
+       <script type="text/javascript">
+       console.log("Good Program");
+          </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Welcome</title>
+	<style type="text/css">
+       #t1{
+          padding: 12px 14px;
+          /*border: none;*/
+          outline: none;
+          border-bottom: 1px solid #000;
+          background-image: url('image.1.jpg');
+          background-position: left top;
+          background-repeat: no-repeat;
+          padding-left: 26px;
+          width: 220px;
+       }
+	</style>
+
+     <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+
+     <script type="text/javascript">
+       $(document).ready(function(){
+            console.log('jQuery Loaded');
+
+            $('#t1').focus(function(){
+               console.log('mouse focused');
+               $(this).animate({
+                 width:'400px'
+               });
+            });
+            $('#t1').mouseout(function(){
+               console.log('mouse out');
+                $(this).animate({
+                 width:'220px'
+               });
+            });
+       });
+
+     </script>
+</head>
+<body>
+
+	     <input type="search" id="t1" name="t1" placeholder="Search Items....">
+
+</body>
+</html>

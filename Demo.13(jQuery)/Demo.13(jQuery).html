@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        #a1 {
+            background-color: lightblue;
+        }
+    </style>
+	<title>Welcome</title>
+	<!--Adding jQuery-min.js as Mother dependency-->
+	<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+	<!--Adding jQuery-ui.js -->
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<!--Adding jquery-min.ui.css  for designing -->
+	<link rel="stylesheet" type="text/css" href="js/jquery-ui.min.css">
+    <!--Adding Bootstrap-4 CDN-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!--Add your custom jQuery code-->
+	<script type="text/javascript">
+      $(document).ready(function(){
+
+          console.log('jQuery-ui loaded');
+        
+          $('#t1').datepicker({
+             changeYear:true,
+             changeMonth:true,
+             yearRange:'1900:2022',
+             dateFormat:'dd-mm-yy'
+          });
+
+           $('#btn1').click(function(){
+              console.log('clicked');
+              var currentDate = new Date();
+              var currentYear = currentDate.getFullYear();
+              console.log(currentYear);
+
+              var dateOfBirth = $('#t1').datepicker('getDate');
+              var yearOfAge=dateOfBirth.getFullYear();
+
+              var age = currentYear-yearOfAge;
+
+              console.log(age);
+              if(age>=18 && age<=80){
+               alert('Welcome your age is '+age);
+              }else{
+               alert("Age must be between 18-80 yrs"); 
+              }
+
+
+
+           });
+            
+            $('#ch1').datepicker({
+              minDate:0,
+            
+            });
+            $('#ch2').datepicker({
+                
+              minDate: updateCheckOut(true),
+              maxDate:15,
+            });
+            console.log($('#ch1'));
+
+
+
+            // $('#btn2').click(function(){
+            //     alert('clicked');
+            //     var checkInDay= $('#ch1').datepicker('getDate');
+            //     var checkOutDay= $('#ch2').datepicker('getDate');
+
+            //     console.log(checkInDay.getDate(),checkOutDay.getDate());
+            //     var bookingTime = checkOutDay.getDate()-checkInDay.getDate();
+
+            //     if(bookingTime>15){
+            //      alert('You are not allowed to Book a room for morethan 15 days');
+            //     }else{
+            //       alert('Room has been booked for '+bookingTime+" Days");
+
+            //     }
+            // });
+
+      });
+
+      function updateCheckOut() {
+          let ciDate = $('#ch1').datepicker('getDate');
+          let td = new Date();
+
+          // console.log(inDate)
+          let time_diff = ciDate.getTime() - td.getTime();
+            var Difference_In_Days = Math.round(time_diff / (1000 * 3600 * 24));
+            $('#ch2').datepicker({
+                
+              minDate: Difference_In_Days + 2,
+              maxDate: Difference_In_Days + 16,
+            });
+          
+      }
+    function handleSubmit(){
+        
+        var checkInDay= $('#ch1').datepicker('getDate');
+        var checkOutDay= $('#ch2').datepicker('getDate');
+
+        console.log(checkInDay.getDate(),checkOutDay.getDate());
+
+        let date_diff = checkOutDay.getTime()-checkInDay.getTime();
+        var bookingTime = Math.round(date_diff / (1000 * 3600 * 24));
+  
+
+        if(bookingTime>15){
+            alert('You are not allowed to Book a room for morethan 15 days');
+        }else{
+            alert('Room has been booked for '+bookingTime+" Days");
+        }
+    }
+	</script>
+</head>
+<body>
+	 <div class="container-fluid">
+        <div class="col-lg-6" style="margin:auto;" id="a1">
+     <h1>DatePicker Example</h1>
+     DOB : <input type="text" name="t1" id="t1" autocomplete="off">
+           <button id="btn1">Calculate Age</button>
+ 
+     <hr/>
+     <h1>Online Hotel Booking :</h1>
+     <form method="post" action="#">
+     <div class="form-group">
+        Name : <input type="text" name="t11" id="t11" required class="form-control is-valid">
+     </div>
+     <div class="form-group">
+       Phone: <input type="number" name="t22" id="t22" required class="form-control is-valid">
+     </div>
+     <div class="form-group">
+        Email : <input type="text" name="t33" id="t33" required class="form-control is-valid">
+     </div>
+     <div class="form-group">
+     CheckIN : <input type="text" name="ch1" class="form-control is-valid" id="ch1" autocomplete="off" onchange="updateCheckOut()">
+     </div>
+     <div class="form-group">
+     CheckOut: <input type="text" name="ch2" id="ch2" class="form-control is-valid" autocomplete="off">
+     </div>
+     <div class="form-group">
+     <button class="btn btn-info btn-sm" id="btn2" onclick="handleSubmit()">Book Now</button>
+     </div>
+ </form>
+</div>
+ </div>
+</body>
+</html>
